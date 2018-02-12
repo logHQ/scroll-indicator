@@ -185,16 +185,18 @@ function scrollindicator_filter_title( $title, $post_id ) {
 	$placement = $options['time-placement'];
     
     global $post;
-    
-    if( (($post->ID) && ($post->ID == $post_id)) && 
+    //die(" post id " . $post->ID );
+    if(
+        ( ($post->ID) && ($post->ID == $post_id)) && 
         in_the_loop() && 
-        ( is_singular($types) && !empty($types) ) ) {
+        ( is_singular($types) && !empty($types) ) 
+    ) {
         
-    	    if($placement=='before-title') {
-    	    	$title = scrollindicator_time_commitment() . $title;
-    	    }elseif($placement=='after-title') {
-    	    	$title = $title . scrollindicator_time_commitment();
-    	    }
+        if($placement=='before-title') {
+            $title = scrollindicator_time_commitment() . $title;
+        }elseif($placement=='after-title') {
+            $title = $title . scrollindicator_time_commitment();
+        }
     	
         
     }
