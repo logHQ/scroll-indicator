@@ -162,23 +162,30 @@ function scrollindicator_wrap_comments_footer() {
 # time commitment placement
 add_action('loop_start','scrollindicator_conditional_title');
 function scrollindicator_conditional_title($query){
+    
 	global $wp_query;
 	if($query === $wp_query) {
 		add_filter( 'the_title', 'scrollindicator_filter_title', 10, 2);
 	} else {
 		remove_filter( 'the_title', 'scrollindicator_filter_title', 10, 2);
 	}
+    
 }
 function scrollindicator_filter_title( $title, $post_id ) {
+    
 	$options = get_option( 'scrollindicator_settings' );
 	$types_builtin = is_array($options['time-display']) ? $options['time-display'] : array();
 	$types_cpts = array();
+    
 	if(isset($options['time-cpts'])) {
 		if(is_array($options['time-cpts'])) $types_cpts = $options['time-cpts'];
 	}
+    
 	$types = array_merge($types_builtin, $types_cpts);
 	$placement = $options['time-placement'];
+    
     global $post;
+    
     if($post->ID == $post_id && in_the_loop()) {
     	if((is_singular($types) && !empty($types))) {
     	    if($placement=='before-title') {
@@ -188,6 +195,7 @@ function scrollindicator_filter_title( $title, $post_id ) {
     	    }
     	}
     }
+    
     return $title;
 }
 add_filter( 'the_content', 'scrollindicator_filter_content', 10, 2);
