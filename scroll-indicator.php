@@ -185,7 +185,7 @@ function scrollindicator_filter_title( $title, $post_id ) {
 	$placement = $options['time-placement'];
     
     global $post;
-    die(" post id " . $post->ID );
+    // die(" post id " . $post->ID );
     if(
         ( ($post->ID) && ($post->ID == $post_id)) && 
         in_the_loop() && 
