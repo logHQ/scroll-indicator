@@ -96,7 +96,14 @@ function scrollindicator_wrap_home() {
 	$mute = isset($options['progress-fixed-opacity']) ? $options['progress-fixed-opacity'] : '';
 	$transparent = isset($options['progress-transparent-background']) ? $options['progress-transparent-background'] : '';
 	$touch = isset($options['progress-touch']) ? $options['progress-touch'] : '';
-	$comments = get_comment_count($post->ID) > 0 ? $options['progress-comments'] : 0;
+	
+	
+	if( is_object($post) ) {
+		$comments = get_comment_count($post->ID) > 0 ? $options['progress-comments'] : 0;
+	}else{
+		$comments = 0;
+	}
+	
 	$comments_bg = $options['progress-comments-background'];
 	$fg = $options['progress-foreground'];
 	$bg = $options['progress-background'];
@@ -156,7 +163,10 @@ function scrollindicator_wrap_comments_footer() {
 	if(is_front_page() && !$types_home) {
 		$show_div = false;
 	}
-	if(get_comment_count($post->ID) > 0 && $show_div) echo '<div id="scrollindicator-comments-end" class="at-footer"></div>';
+	
+	if( is_object($post) ) {
+		if(get_comment_count($post->ID) > 0 && $show_div) echo '<div id="scrollindicator-comments-end" class="at-footer"></div>';
+	}
 }
 
 # time commitment placement
