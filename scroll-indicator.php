@@ -256,7 +256,7 @@ add_action('wp_head','scrollindicator_custom_css');
 function scrollindicator_custom_css() {
 	$options = get_option( 'scrollindicator_settings' );
 	$css = $options['time-css'];
-	if(!empty($css)) echo '<style type="text/css">' . $css . '</style>';
+	if(!empty($css)) echo '<style>' . $css . '</style>';
 }
 
 # create the time commitment shortcode
