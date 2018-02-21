@@ -750,9 +750,16 @@ if ( ! class_exists( 'ReduxFramework_typography' ) ) {
                     if ( isset( $this->parent->args['async_typography'] ) && $this->parent->args['async_typography'] ) {
                         $key_string    = "";
                         $key_string_ie = "";
+                        $counter_comma = 0;
                         foreach ( $this->field['output'] as $value ) {
-                            $key_string .= ".wf-loading " . $value . ',';
-                            $key_string_ie .= ".ie.wf-loading " . $value . ',';
+                            if($counter_comma>0){
+                                $key_string .= ".wf-loading " . $value;
+                                $key_string_ie .= ".ie.wf-loading " . $value ;
+                            }else{
+                                $key_string .= ",.wf-loading " . $valur;
+                                $key_string_ie .= ",.ie.wf-loading " . $value;
+                                
+                            }
                         }
                         $this->parent->outputCSS .= $key_string . "{opacity: 0;}";
                         $this->parent->outputCSS .= $key_string_ie . "{visibility: hidden;}";
