@@ -1597,7 +1597,7 @@
                 }
 
                 if ( ! empty ( $this->outputCSS ) && ( $this->args['output_tag'] == true || ( isset ( $_POST['customized'] ) ) ) ) {
-                    echo '<style type="text/css" title="dynamic-css" class="options-output">' . $this->outputCSS . '</style>';
+                    //echo '<style type="text/css" title="dynamic-css" class="options-output">' . $this->outputCSS . '</style>';
                 }
             }
 
