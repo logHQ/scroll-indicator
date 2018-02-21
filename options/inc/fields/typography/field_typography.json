@@ -794,8 +794,8 @@
                                  
                             }
                            
-                            $this->parent->compilerCSS .= $key_string . "{opacity: 0;}";
-                            $this->parent->compilerCSS .= $key_string_ie . "{visibility: hidden;}";
+                            //$this->parent->compilerCSS .= $key_string . "{opacity: 0;}";
+                            //$this->parent->compilerCSS .= $key_string_ie . "{visibility: hidden;}";
                         }
                     }
                 }

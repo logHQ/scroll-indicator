@@ -787,8 +787,8 @@ if ( ! class_exists( 'ReduxFramework_typography' ) ) {
                             }
                              $counter_comma++;
                         }
-                        $this->parent->compilerCSS .= $key_string . "{opacity: 0;}";
-                        $this->parent->compilerCSS .= $key_string_ie . "{visibility: hidden;}";
+                        //$this->parent->compilerCSS .= $key_string . "{opacity: 0;}";
+                        //$this->parent->compilerCSS .= $key_string_ie . "{visibility: hidden;}";
                     }
                 }
             }
