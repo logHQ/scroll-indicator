@@ -658,6 +658,7 @@ if ( ! class_exists( 'ReduxFramework_typography' ) ) {
         }
 
         function output() {
+            return;
             $font = $this->value;
 
             // Shim out old arg to new
@@ -739,7 +740,7 @@ if ( ! class_exists( 'ReduxFramework_typography' ) ) {
                     $style .= $key . ':' . $value . ';';
                 }
                 if ( isset( $this->parent->args['async_typography'] ) && $this->parent->args['async_typography'] ) {
-                    $style .= 'opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;';
+                    //$style .= 'opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;';
                 }
             }
 
