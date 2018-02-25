@@ -52,7 +52,13 @@ function scrollindicator_wrap_content( $content ) {
 	$fg = $options['progress-foreground'];
 	$bg = $options['progress-background'];
 	$fg_muted = $options['progress-muted-foreground'];
-	$types_builtin = is_array($options['progress-display']) ? $options['progress-display'] : array();
+	
+	if ( isset($options['progress-display']) ) {
+		$types_builtin = is_array($options['progress-display']) ? $options['progress-display'] : array();
+	}else{
+		$types_builtin = array();
+	}
+	
 	$types_cpts = array();
 	if(isset($options['progress-cpts'])) {
 		if(is_array($options['progress-cpts'])) $types_cpts = $options['progress-cpts'];
